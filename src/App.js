@@ -1,22 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
+  useEffect(()=>{
+    testingBeckend()
+    },[])
+  
+     const  testingBeckend = async () => {
+    
+      try {
+        const response = await axios.get(`https://www.backend.lizmy.com`, {
+        });
+        const { status, message, data } = response.data;
+             console.log(response,"https://www.backend.lizmy.com")
+      } catch (error) {
+        console.error('Error getting services:', error.message);
+      }
+    };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+         <h1>TESTING AWS</h1>
       </header>
     </div>
   );
